@@ -21,11 +21,32 @@ const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" })
     const updateTime = () => {
       const now = new Date();
 
-      const new_time_zone = timeZone.replace("Canada", "America");
+      // const new_time_zone = timeZone.replace("Canada", "America");
 
+      const timeZoneMap: Record<string, string> = {
+        "Canada/Toronto": "America/Toronto",
+        "Canada/Vancouver": "America/Vancouver",
+        "Canada/Edmonton": "America/Edmonton",
+        "Canada/Montreal": "America/Toronto",
+        "Canada/Ottawa": "America/Toronto",
+        "Canada/Calgary": "America/Edmonton",
+        "Canada/Winnipeg": "America/Winnipeg",
+        "Canada/Halifax": "America/Halifax",
+      };
+  
+      let fixedTimeZone = timeZoneMap[timeZone] || "America/Toronto";
+  
+      const isValidTimeZone = (tz: string) => Intl.supportedValuesOf("timeZone").includes(tz);
+  
+      if (!isValidTimeZone(fixedTimeZone)) {
+        console.warn(`Invalid time zone: ${fixedTimeZone}, falling back to UTC.`);
+        fixedTimeZone = "UTC";
+      }
+
+      
       const options: Intl.DateTimeFormatOptions = {
         // timeZone,
-        timeZone: new_time_zone,
+        timeZone: fixedTimeZone,
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
