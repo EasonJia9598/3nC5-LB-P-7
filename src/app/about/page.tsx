@@ -69,6 +69,33 @@ export async function generateMetadata() {
 //   ];
 
 export default function About() {
+  // const structure = [
+  //   {
+  //     title: about.intro.title,
+  //     display: about.intro.display,
+  //     items: [],
+  //   },
+  //   {
+  //     title: about.work.title,
+  //     display: about.work.display,
+  //     items: about.work.experiences.map((experience) => experience.company),
+  //   },
+  //   {
+  //     title: about.studies.title,
+  //     display: about.studies.display,
+  //     items: about.studies.institutions.map((institution) => institution.name),
+  //   },
+  //   {
+  //     title: about.projects.title, // Add Projects to Table of Contents
+  //     display: about.projects.display,
+  //     items: about.projects.projectsList.map((project) => project.name),
+  //   },
+  //   {
+  //     title: about.technical.title,
+  //     display: about.technical.display,
+  //     items: about.technical.skills.map((skill) => skill.title),
+  //   },
+  // ];
   const structure = [
     {
       title: about.intro.title,
@@ -78,25 +105,32 @@ export default function About() {
     {
       title: about.work.title,
       display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
+      items: about.work.experiences.map((experience) =>
+        typeof experience.company === "string" ? experience.company : "Unknown Company"
+      ),
     },
     {
       title: about.studies.title,
       display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
+      items: about.studies.institutions.map((institution) =>
+        typeof institution.name === "string" ? institution.name : "Unknown Institution"
+      ),
     },
     {
-      title: about.projects.title, // Add Projects to Table of Contents
+      title: about.projects.title,
       display: about.projects.display,
-      items: about.projects.projectsList.map((project) => project.name),
+      items: about.projects.projectsList.map((project) =>
+        typeof project.name === "string" ? project.name : "Unnamed Project"
+      ),
     },
     {
       title: about.technical.title,
       display: about.technical.display,
-      items: about.technical.skills.map((skill) => skill.title),
+      items: about.technical.skills.map((skill) =>
+        typeof skill.title === "string" ? skill.title : "Unnamed Skill"
+      ),
     },
   ];
-
   return (
     <Column maxWidth="l">
       <script
@@ -129,8 +163,8 @@ export default function About() {
           paddingLeft="24"
           gap="32"
           hide="s"
-        >
-          <TableOfContents structure={structure} about={about} />
+        > 
+        <TableOfContents structure={structure} about={about} />
         </Column>
       )}
       <Flex fillWidth mobileDirection="column" horizontal="center">
