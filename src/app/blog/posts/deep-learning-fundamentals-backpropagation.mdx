@@ -1,0 +1,48 @@
+---
+title: "Deep learning fundamentals: Backpropagation"
+publishedAt: "2022-08-27"
+image: "/images/blogs_cover/backpropagation.jpg"
+summary: "This article is related to EECS 498.008, Deep learning for Computer Vision from U of Michigan. Today, we go through the mathematical details of Backpropagation in Scalar view, vector view, and high demensional matrix view. In the meantime, we introduce the most powerful tool in fundamental DL - computation graph. With that, we not only achieve a way to compute first order of derivatives but also high order derivatives by dual end BackProp. "
+tag: "Article"
+---
+
+> This article is related to EECS 498.008, Deep learning for Computer Vision from U of Michigan. Today, we go through the mathematical details of Backpropagation in Scalar view, vector view, and high demensional matrix view. In the meantime, we introduce the most powerful tool in fundamental DL - computation graph. With that, we not only achieve a way to compute first order of derivatives, but also high order derivatives by dual end BackProp. 
+
+
+In this note, we won't spend too much time on why we need backpropagation. The fundamental idea of this concept is easy to see through when we know it's needed. But it's hard to create from nowhere. It is not only the breaking point and milestone for deep learning, but also started the glory days of this new field. 
+
+Here, we quote the introduction about Backpropagation from Book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/)
+
+>The backpropagation algorithm was originally introduced in the 1970s, but its importance wasn't fully appreciated until a famous 1986 paper [Learning representations by back-propagating errors](https://www.nature.com/articles/323533a0#citeas) [@Learning-representations-by-back-propagating-errors] by David Rumelhart, Geoffrey Hinton, and Ronald Williams. That paper describes several neural networks where backpropagation works far faster than earlier approaches to learning, making it possible to use neural nets to solve problems which had previously been insoluble. Today, the backpropagation algorithm is the workhorse of learning in neural networks.
+
+
+# Table of contents
+
+- [Table of contents](#table-of-contents)
+  - [1. Computation graphs and Backpropagation](#1-computation-graphs-and-backpropagation)
+    - [1.1 Backpropagation](#11-backpropagation)
+    - [1.2 Patterns in Gradient Flow](#12-patterns-in-gradient-flow)
+    - [1.3 BackProp implementation](#13-backprop-implementation)
+      - [1.3.1 Pytorch implementation](#131-pytorch-implementation)
+  - [2. Backpropagation with vector-valued function](#2-backpropagation-with-vector-valued-function)
+    - [2.1 Backprop with Vectors](#21-backprop-with-vectors)
+    - [2.2 Backprop with Matrices (or Tensors)](#22-backprop-with-matrices-or-tensors)
+  - [3. More about Backpropagation and its variants](#3-more-about-backpropagation-and-its-variants)
+    - [3.1 Reverse Mode Automatic Differentiation](#31-reverse-mode-automatic-differentiation)
+    - [3.2 Forward-Mode Automatic Differentiation](#32-forward-mode-automatic-differentiation)
+  - [3.3 Higher-Order Derivatives](#33-higher-order-derivatives)
+  - [References](#references)
+
+
+
+## 1. Computation graphs and Backpropagation
+
+Calculating the gradient value of each neural network layer is a very crucial task for us to find a way to optimize the model's weights. However, in a simple MLP, aka feed forward neural network, we need to derive a composition of many differentiable functions. It is hard for humans to solve by hand. And the formula needs to be adjusted whenever changing those functions even a little bit. For solving this, we introduced the idea of backpropagation. 
+
+Now, we need to show the tool of how to achieve this goal. 
+
+> Simple example of a entire computation graph.
+
+
+
+[Read more about this article in my blog website](https://ethansblog.vercel.app/blog/Fundamentals/deep-learning-fundamentals-backpropagation)
