@@ -1,5 +1,6 @@
 import { InlineCode } from "@/once-ui/components";
-
+import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { HiOutlineLink } from "react-icons/hi2"; // Correct import for Heroicons v2
 const person = {
   firstName: "Ethan(Zesheng)",
   lastName: "Jia",
@@ -14,28 +15,41 @@ const person = {
   ], // optional: Leave the array empty if you don't want to display languages
 };
 
-// const newsletter = {
-//   display: true,
-//   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-//   description: (
-//     <>
-//       I occasionally write about design, technology, and share thoughts on the intersection of
-//       creativity and engineering.
-//     </>
-//   ),
-// };
+const GitHubLink = ({ url, text = "View Project on GitHub" }) => {
+  return (
+    <>
+      <br />
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: "inline-flex", alignItems: "center", gap: "5px", textDecoration: "none" }}
+      >
+        <FaGithub size={16} /> {text}
+      </a>
+    </>
+  );
+};
 
-// const newsletter = {
-//   display: true,
-//   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-//   description: (
-//     <>
-//       As a professional interpreter fluent in French, English, Mandarin, and Cantonese, I share
-//       insights on language, culture, and communication. Subscribe to stay updated on my latest
-//       thoughts and experiences in the world of multilingual interpretation.
-//     </>
-//   ),
-// };
+const NormalLink = ({ url, text = "View Link" }) => {
+  return (
+    <>
+      <br />
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ display: "inline-flex", alignItems: "center", gap: "5px", textDecoration: "none" }}
+      >
+        <HiOutlineLink size={16} /> {text}
+      </a>
+    </>
+  );
+};
+
+
+
+export default GitHubLink;
 
 const newsletter = {
   display: true,
@@ -266,14 +280,19 @@ const about = {
     projectsList: [
       {
         name: "AI-Powered Financial Document Analysis",
-        timeframe: "2024",
+        timeframe: "2025",
         description: (
           <>
             Built an LLM-based knowledge management system to extract and organize financial reports.
             Leveraged BERT models to enable sentiment analysis across financial documents using dataset financial_phrasebank.
+            <br/>
+            <GitHubLink 
+                url="https://github.com/EasonJia9598" 
+                text="Currently Constructing, will publish very soon."
+            />
           </>
         ),
-        technologies: ["Python", "TensorFlow", "Transformers"],
+        technologies: ["Python", "TensorFlow", "Transformers", "DeepSeek R1", "LangChain", "ChromaDB", "Streamlit"],
         images: [],
       },
       {
@@ -302,11 +321,11 @@ const about = {
       },
       {
         name: "Real Estate Data Gathering and Analysis",
-        timeframe: "2024 - 2025",
+        timeframe: "2024",
         description: (
           <>
             Designed a Python-based web scraping pipeline to collect and analyze real estate pricing data,
-            identifying trends in the housing market. Developed predictive models for stock price trends using machine learning,
+            identifying trends in the housing market. Developed predictive models for real estate price trends using machine learning (LightGBM),
             improving risk analysis accuracy.
           </>
         ),
@@ -346,6 +365,8 @@ const about = {
             Analyzed 183,593 NASA VIIRS satellite data points using statistical modeling and machine learning
             (Random Forest, LightGBM), improving wildfire risk prediction by 20% and identifying key FRP predictors
             for insurance strategy optimization.
+            <br />
+            <GitHubLink url="https://github.com/EasonJia9598/Australian_wildfire_FRP" />
           </>
         ),
         technologies: ["Python", "Machine Learning", "Random Forest", "LightGBM"],
@@ -358,6 +379,8 @@ const about = {
           <>
             Built a Denoising Diffusion Probabilistic Model (DDPM) to generate high-resolution synthetic MRI images,
             addressing low-data challenges in medical imaging. Improved synthetic image quality by 30% using optimized noise schedules.
+            <br />
+              <GitHubLink url="https://github.com/EasonJia9598/BrainMRI_Diffusion_Model" />
           </>
         ),
         technologies: ["Python", "PyTorch", "NumPy", "Matplotlib"],
@@ -371,6 +394,8 @@ const about = {
             Developed a BERT-based NLP model to classify and extract insights from radiology reports, achieving
             15% improvement over TF-IDF models. Integrated a domain-specific medical NLP pipeline, improving
             text classification and anomaly detection.
+            <br />
+            <GitHubLink url="https://github.com/EasonJia9598/BrainMRI_Diffusion_Model" />
           </>
         ),
         technologies: ["Python", "PyTorch", "Hugging Face Transformers", "Scikit-learn", "SQL"],
@@ -383,11 +408,41 @@ const about = {
           <>
             Built and deployed a personal website on Vercel, sharing insights on machine learning, AI, NLP,
             and deep learning. Explored transfer learning and distilled complex concepts into practical insights.
+            <br />
+            <NormalLink url="https://ethansblog.vercel.app/" />
+
+
           </>
         ),
         technologies: ["HTML", "CSS", "React", "Tailwind CSS"],
         images: [],
       },
+      {
+        name: "Telecom Customer Churn Prediction",
+        timeframe: "2022",
+        description: (
+          <>
+            Developed a predictive model to determine customer churn in the telecommunications sector. The project involved data cleaning to handle missing values and irrelevant features, followed by training a classification model to accurately predict customer retention.
+            <br />
+            <GitHubLink url="https://github.com/EasonJia9598/Tele_customer_churn" />
+          </>
+        ),
+        technologies: ["Python", "Pandas", "Scikit-learn", "Jupyter Notebook"],
+        images: [],
+      }, 
+      {
+        name: "Amazon Book Review Score Prediction",
+        timeframe: "2022",
+        description: (
+          <>
+            Developed a predictive model to estimate Amazon book review scores based on customer review texts. The project utilized Natural Language Processing (NLP) techniques, including TF-IDF for word embeddings, and employed a Random Forest classifier to train on the processed dataset. Additionally, various feature engineering methods were applied, and the impact of different part-of-speech tagging and data cleaning strategies on model performance was analyzed.
+            <br />
+            <GitHubLink url="https://github.com/EasonJia9598/Amazon_book_review_score" />
+          </>
+        ),
+        technologies: ["Python", "Pandas", "Scikit-learn", "Natural Language Processing", "Random Forest", "TF-IDF"],
+        images: [],
+      }
     ],
   },
 
@@ -601,7 +656,7 @@ const about = {
 };
 const blog = {
   label: "Blog",
-  title: "Writing about design and tech...",
+  title: "Writing about AI, Reinforcement Learning, Quant Finance, etc.",
   description: `Read what ${person.name} has been up to recently`,
   // Create new blog posts by adding a new .mdx file to app/blog/posts
   // All posts will be listed on the /blog route
@@ -610,7 +665,7 @@ const blog = {
 const work = {
   label: "Work",
   title: "My projects",
-  description: `Design and dev projects by ${person.name}`,
+  description: `Ai and Quant projects by ${person.name}`,
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
