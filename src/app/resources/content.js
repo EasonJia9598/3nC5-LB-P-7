@@ -7,7 +7,7 @@ const person = {
   get name() {
     return `${this.firstName} ${this.lastName}`;
   },
-  role: "Master of Quantitative Finance, UWaterloo | Affliate Reinforcement Learning AI Researcher, NIMS Lab | Former Data Scientist, Dalhousie University & Safeguard Intelligent Medical Diagnosis Inc. | Author/Speaker, 2025 Statistical Society of Canada Annual Meeting",
+  role: "Master of Quantitative Finance, UWaterloo | Affliate Reinforcement Learning AI Researcher, NIMS Lab | Signed Attestation for Advance Sensitive Technology Research Areas in Canada | Former Data Scientist, Dalhousie University & Safeguard Intelligent Medical Diagnosis Inc. | Author/Speaker, 2025 Statistical Society of Canada Annual Meeting",
   avatar: "/images/ethan_avatar.jpeg",
   location: "Canada/Waterloo", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: ["Reinforcement Learning", "Statistical Modeling", "Machine Learning", "University of Waterloo",
