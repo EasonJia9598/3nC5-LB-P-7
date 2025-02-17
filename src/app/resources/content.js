@@ -89,25 +89,6 @@ const social = [
   },
 ];
 
-// const home = {
-//   label: "Home",
-//   title: `${person.name}'s Portfolio`,
-//   description: `Portfolio website showcasing my work as a ${person.role}`,
-//   headline: <>Professional Interpreter with French, English, Mandarain, and Cantonese</>,
-//   subline: (
-//     <>
-//       {/* I'm Selene, a design engineer at <InlineCode>FLY</InlineCode>, where I craft intuitive
-//       <br /> user experiences. After hours, I build my own projects.
-//        */}
-
-//       I am Mabel(Yingjun) Chen, as a professional interpreter fluent in French, English, Mandarin, and Cantonese, I share
-//       insights on language, culture, and communication. Subscribe to stay updated on my latest
-//       thoughts and experiences in the world of multilingual interpretation.
-//     </>
-//   ),
-// };
-
-
 const home = {
   label: "Home",
   title: `${person.name}'s Portfolio`,
@@ -446,28 +427,6 @@ const about = {
     ],
   },
 
-  // studies : {
-  //   display: true,
-  //   title: "Studies",
-  //   institutions: [
-  //     {
-  //       name: (
-  //         <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-  //           <img
-  //             src="/images/Studies/University_of_Waterloo.png" // Replace with the actual avatar URL
-  //             alt="Avatar"
-  //             style={{ width: "44px", height: "44px", borderRadius: "50%" }}
-  //           />
-  //           University of Waterloo
-  //         </span>
-  //       ),
-  //       description: <>Master of Quantitative Finance</>,
-  //     },
-
-
-  //   ],
-  // },
-
   studies: {
     display: true,
     title: "Studies",
@@ -496,17 +455,6 @@ const about = {
             Dalhousie University
           </span>
         ),
-        // description: (
-        //   <>
-        //     B.Sc. (First Class Honours) in Statistics & Mathematics, 2020-2024
-        //     <br />
-        //     GPA: Statistics Major GPA: 4.15/4.3 | Senior Statistics Courses: 4.23/4.3
-        //     <br />
-        //     Specializations: Data Science, Artificial Intelligence, Intelligent Systems
-        //     <br />
-        //     Honors: Dean’s List (2022-2024), Dalhousie In-Course Scholarship (2024)
-        //   </>
-        // ),
         description: (
           <div style={{ marginTop: "8px", lineHeight: "1.6" }}>
             <p><strong>B.Sc. (First Class Honours/Distinction) in Statistics & Mathematics, 2020-2024, Dean’s List</strong></p>
@@ -517,48 +465,6 @@ const about = {
       },
     ],
   },
-
-
-  //   technical: {
-  //     display: true, // set to false to hide this section
-  //     title: "Technical skills",
-  //     skills: [
-  //       {
-  //         title: "Figma",
-  //         description: <>Able to prototype in Figma with Once UI with unnatural speed.</>,
-  //         // optional: leave the array empty if you don't want to display images
-  //         images: [
-  //           {
-  //             src: "/images/projects/project-01/cover-02.jpg",
-  //             alt: "Project image",
-  //             width: 16,
-  //             height: 9,
-  //           },
-  //           {
-  //             src: "/images/projects/project-01/cover-03.jpg",
-  //             alt: "Project image",
-  //             width: 16,
-  //             height: 9,
-  //           },
-  //         ],
-  //       },
-  //       {
-  //         title: "Next.js",
-  //         description: <>Building next gen apps with Next.js + Once UI + Supabase.</>,
-  //         // optional: leave the array empty if you don't want to display images
-  //         images: [
-  //           {
-  //             src: "/images/projects/project-01/cover-04.jpg",
-  //             alt: "Project image",
-  //             width: 16,
-  //             height: 9,
-  //           },
-  //         ],
-  //       },
-  //     ],
-  //   },
-  // };
-
   technical: {
     display: true, // set to false to hide this section
     title: "Technical Skills",
@@ -572,12 +478,6 @@ const about = {
           </>
         ),
         images: [
-          // {
-          //   src: "/images/projects/ai-model-01.jpg",
-          //   alt: "AI model development",
-          //   width: 16,
-          //   height: 9,
-          // },
         ],
       },
       {
@@ -589,12 +489,6 @@ const about = {
           </>
         ),
         images: [
-          // {
-          //   src: "/images/projects/nlp-model-01.jpg",
-          //   alt: "NLP model",
-          //   width: 16,
-          //   height: 9,
-          // },
         ],
       },
       {
@@ -626,12 +520,6 @@ const about = {
           </>
         ),
         images: [
-          // {
-          //   src: "/images/projects/code-01.jpg",
-          //   alt: "Programming languages",
-          //   width: 16,
-          //   height: 9,
-          // },
         ],
       },
       {
@@ -643,12 +531,6 @@ const about = {
           </>
         ),
         images: [
-          // {
-          //   src: "/images/projects/web-dev-01.jpg",
-          //   alt: "Web development project",
-          //   width: 16,
-          //   height: 9,
-          // },
         ],
       },
     ],
